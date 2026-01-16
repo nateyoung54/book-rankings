@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nate's Book Collection: Ranked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nate's Book Collection: Ranked</h1>
+        <button id="recommend-btn" class="recommend-btn">Submit a Recommendation</button>
+    </header>
+
+    <!-- Recommendation Modal -->
+    <div id="recommend-modal" class="modal" hidden>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <h2>Recommend a Book</h2>
+            <form id="recommend-form" action="https://formspree.io/f/xnjjjdvq" method="POST">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-title">Book Title</label>
+                    <input type="text" id="book-title" name="bookTitle" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <div id="books-grid" class="books-grid">
+            <!-- Books will be rendered here by JavaScript -->
+        </div>
+        <div id="loading" class="loading">Loading books...</div>
+        <div id="empty-state" class="empty-state" hidden>
+            <p>No books yet. Add some to books.json to get started.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Updated with each new read</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
