@@ -1,0 +1,38 @@
+name: Add a Book
+description: Add a new book to your collection
+title: "Add: "
+labels: ["add-book"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: "The Seven Habits of Highly Effective People"
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      placeholder: "Stephen R. Covey"
+    validations:
+      required: true
+
+  - type: input
+    id: isbn
+    attributes:
+      label: ISBN (optional)
+      description: Helps find the book cover
+      placeholder: "9781982137274"
+    validations:
+      required: false
+
+  - type: input
+    id: rank
+    attributes:
+      label: Rank
+      description: Where should this book appear in your list?
+      placeholder: "37"
+    validations:
+      required: true

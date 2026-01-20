@@ -1,33 +1,32 @@
 # Adding Books to Your Collection
 
-## How to Add a New Book
+## Method 1: GitHub Issue (Recommended)
+
+The easiest way to add books from your phone or computer:
+
+1. Go to: **github.com/nateyoung54/book-rankings/issues/new/choose**
+2. Click **"Add a Book"**
+3. Fill in the form:
+   - Title
+   - Author
+   - ISBN (optional - helps find cover)
+   - Rank
+4. Click **"Submit new issue"**
+5. Done! Your book will appear on your site in ~30 seconds.
+
+The issue will automatically close once the book is added.
+
+## Method 2: Triple-Click (Alternative)
 
 1. Go to your site
 2. **Triple-click** the title "Nate's Book Collection: Ranked"
-3. Fill in the book details:
-   - Title
-   - Author
-   - ISBN (optional - helps find book cover)
-   - Rank (where to insert it)
+3. Fill in book details
 4. Click **"Add & Download JSON"**
-5. A `books.json` file will download
+5. Upload the file to your GitHub repo
 
-## Updating Your Site
+## Finding ISBN Numbers
 
-After downloading the new `books.json`:
-
-### Option A: GitHub Website (easiest)
-1. Go to your repo: github.com/nateyoung54/book-rankings
-2. Click on `books.json`
-3. Click the pencil icon (Edit)
-4. Delete all content
-5. Paste the contents of your downloaded file
-6. Click "Commit changes"
-7. Your site updates automatically in ~30 seconds
-
-### Option B: Drag and Drop
-1. Go to your repo on GitHub
-2. Drag your downloaded `books.json` onto the file list
-3. Commit the change
-
-That's it! Your new book will appear on your site.
+ISBNs are optional but help find book covers. You can find them:
+- On Amazon (in product details)
+- On the book's copyright page
+- Google: "ISBN [book title]"
