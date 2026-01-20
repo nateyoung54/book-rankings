@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Book Rankings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-warm: #faf9f7;
+            --text-charcoal: #3d3d3d;
+            --accent-sage: #8b9a82;
+            --accent-sage-dark: #7a8973;
+            --card-white: #ffffff;
+            --shadow-soft: rgba(0, 0, 0, 0.06);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+            --danger: #c0392b;
+            --danger-light: #e74c3c;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--text-charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+        }
+
+        /* Login Screen */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .login-box {
+            background: var(--card-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow-soft);
+            max-width: 360px;
+            width: 100%;
+        }
+
+        .login-box h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border-color: var(--accent-sage);
+            box-shadow: 0 0 0 3px rgba(139, 154, 130, 0.2);
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--accent-sage);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-box button:hover {
+            background: var(--accent-sage-dark);
+        }
+
+        .login-error {
+            color: var(--danger);
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .admin-header h1 {
+            font-size: 1.75rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent-sage);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-sage-dark);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: var(--text-charcoal);
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: var(--danger-light);
+        }
+
+        .btn-small {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        /* Add/Edit Form */
+        .book-form {
+            background: var(--card-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px var(--shadow-soft);
+            margin-bottom: 2rem;
+        }
+
+        .book-form h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            padding: 0.75rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-sage);
+            box-shadow: 0 0 0 3px rgba(139, 154, 130, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        /* Books List */
+        .books-list {
+            background: var(--card-white);
+            border-radius: 10px;
+            box-shadow: 0 2px 12px var(--shadow-soft);
+            overflow: hidden;
+        }
+
+        .books-list h2 {
+            font-size: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .book-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 1rem;
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-item:hover {
+            background: #fafafa;
+        }
+
+        .book-rank {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-sage);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .book-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .book-title {
+            font-weight: 500;
+            margin-bottom: 0.15rem;
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: var(--accent-sage);
+        }
+
+        .book-isbn {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.15rem;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Status messages */
+        .status-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent-sage);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .admin-panel {
+                padding: 1rem;
+            }
+
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .book-item {
+                flex-wrap: wrap;
+            }
+
+            .book-actions {
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 0.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <h1>Admin Login</h1>
+            <form id="login-form">
+                <input type="password" id="password-input" placeholder="Enter password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="login-error" class="login-error" hidden></p>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel">
+        <header class="admin-header">
+            <h1>Book Rankings Admin</h1>
+            <div class="header-actions">
+                <a href="/" class="btn btn-secondary">View Site</a>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <!-- Status Message -->
+        <div id="status-message" class="status-message" hidden></div>
+
+        <!-- Add/Edit Book Form -->
+        <div class="book-form">
+            <h2 id="form-title">Add New Book</h2>
+            <form id="book-form">
+                <input type="hidden" id="book-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author *</label>
+                        <input type="text" id="author" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="isbn">ISBN (optional)</label>
+                        <input type="text" id="isbn" placeholder="For book cover lookup">
+                    </div>
+                    <div class="form-group">
+                        <label for="rank">Rank *</label>
+                        <input type="number" id="rank" min="1" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Add Book</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn" hidden>Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Books List -->
+        <div class="books-list">
+            <h2>Your Books (<span id="book-count">0</span>)</h2>
+            <div id="books-container">
+                <div class="loading">Loading books...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let adminPassword = '';
+        let books = [];
+        let editingBookId = null;
+
+        // DOM Elements
+        const loginScreen = document.getElementById('login-screen');
+        const adminPanel = document.getElementById('admin-panel');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const passwordInput = document.getElementById('password-input');
+        const logoutBtn = document.getElementById('logout-btn');
+        const bookForm = document.getElementById('book-form');
+        const formTitle = document.getElementById('form-title');
+        const submitBtn = document.getElementById('submit-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const statusMessage = document.getElementById('status-message');
+        const booksContainer = document.getElementById('books-container');
+        const bookCount = document.getElementById('book-count');
+
+        // Form fields
+        const bookIdInput = document.getElementById('book-id');
+        const titleInput = document.getElementById('title');
+        const authorInput = document.getElementById('author');
+        const isbnInput = document.getElementById('isbn');
+        const rankInput = document.getElementById('rank');
+
+        // Check for saved session
+        const savedPassword = sessionStorage.getItem('adminPassword');
+        if (savedPassword) {
+            adminPassword = savedPassword;
+            showAdminPanel();
+        }
+
+        // Login form handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = passwordInput.value;
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+
+                if (response.ok) {
+                    adminPassword = password;
+                    sessionStorage.setItem('adminPassword', password);
+                    loginError.hidden = true;
+                    showAdminPanel();
+                } else {
+                    loginError.textContent = 'Invalid password';
+                    loginError.hidden = false;
+                }
+            } catch (error) {
+                loginError.textContent = 'Error connecting to server';
+                loginError.hidden = false;
+            }
+        });
+
+        // Logout handler
+        logoutBtn.addEventListener('click', () => {
+            adminPassword = '';
+            sessionStorage.removeItem('adminPassword');
+            loginScreen.style.display = 'flex';
+            adminPanel.style.display = 'none';
+            passwordInput.value = '';
+        });
+
+        // Show admin panel
+        async function showAdminPanel() {
+            loginScreen.style.display = 'none';
+            adminPanel.style.display = 'block';
+            await loadBooks();
+        }
+
+        // Load books
+        async function loadBooks() {
+            try {
+                const response = await fetch('/api/books');
+                const data = await response.json();
+                books = data.books || [];
+                renderBooks();
+                updateRankPlaceholder();
+            } catch (error) {
+                booksContainer.innerHTML = '<div class="empty-state">Error loading books</div>';
+            }
+        }
+
+        // Render books list
+        function renderBooks() {
+            bookCount.textContent = books.length;
+
+            if (books.length === 0) {
+                booksContainer.innerHTML = '<div class="empty-state">No books yet. Add your first book above!</div>';
+                return;
+            }
+
+            booksContainer.innerHTML = books.map(book => `
+                <div class="book-item" data-id="${book.id}">
+                    <div class="book-rank">${book.rank}</div>
+                    <div class="book-details">
+                        <div class="book-title">${escapeHtml(book.title)}</div>
+                        <div class="book-author">${escapeHtml(book.author)}</div>
+                        ${book.isbn ? `<div class="book-isbn">ISBN: ${book.isbn}</div>` : ''}
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-secondary btn-small" onclick="editBook('${book.id}')">Edit</button>
+                        <button class="btn btn-danger btn-small" onclick="deleteBook('${book.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update rank placeholder to suggest next rank
+        function updateRankPlaceholder() {
+            if (!editingBookId) {
+                rankInput.placeholder = `Suggested: ${books.length + 1}`;
+            }
+        }
+
+        // Book form handler
+        bookForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const bookData = {
+                title: titleInput.value.trim(),
+                author: authorInput.value.trim(),
+                isbn: isbnInput.value.trim(),
+                rank: parseInt(rankInput.value)
+            };
+
+            if (editingBookId) {
+                bookData.id = editingBookId;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = editingBookId ? 'Saving...' : 'Adding...';
+
+            try {
+                const response = await fetch('/api/admin/books', {
+                    method: editingBookId ? 'PUT' : 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': adminPassword
+                    },
+                    body: JSON.stringify(bookData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    books = data.books;
+                    renderBooks();
+                    resetForm();
+                    showStatus(`Book ${editingBookId ? 'updated' : 'added'} successfully!`, 'success');
+                } else {
+                    showStatus(data.error || 'Failed to save book', 'error');
+                }
+            } catch (error) {
+                showStatus('Error connecting to server', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = editingBookId ? 'Save Changes' : 'Add Book';
+            }
+        });
+
+        // Edit book
+        function editBook(id) {
+            const book = books.find(b => b.id === id);
+            if (!book) return;
+
+            editingBookId = id;
+            titleInput.value = book.title;
+            authorInput.value = book.author;
+            isbnInput.value = book.isbn || '';
+            rankInput.value = book.rank;
+
+            formTitle.textContent = 'Edit Book';
+            submitBtn.textContent = 'Save Changes';
+            cancelBtn.hidden = false;
+
+            // Scroll to form
+            bookForm.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Delete book
+        async function deleteBook(id) {
+            const book = books.find(b => b.id === id);
+            if (!book) return;
+
+            if (!confirm(`Delete "${book.title}"? This will shift all ranks.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/admin/books', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': adminPassword
+                    },
+                    body: JSON.stringify({ id })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    books = data.books;
+                    renderBooks();
+                    updateRankPlaceholder();
+                    showStatus('Book deleted successfully', 'success');
+
+                    // If we were editing this book, reset the form
+                    if (editingBookId === id) {
+                        resetForm();
+                    }
+                } else {
+                    showStatus(data.error || 'Failed to delete book', 'error');
+                }
+            } catch (error) {
+                showStatus('Error connecting to server', 'error');
+            }
+        }
+
+        // Cancel edit
+        cancelBtn.addEventListener('click', resetForm);
+
+        // Reset form
+        function resetForm() {
+            editingBookId = null;
+            bookForm.reset();
+            formTitle.textContent = 'Add New Book';
+            submitBtn.textContent = 'Add Book';
+            cancelBtn.hidden = true;
+            updateRankPlaceholder();
+        }
+
+        // Show status message
+        function showStatus(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message status-${type}`;
+            statusMessage.hidden = false;
+
+            setTimeout(() => {
+                statusMessage.hidden = true;
+            }, 3000);
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
