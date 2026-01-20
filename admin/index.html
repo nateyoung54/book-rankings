@@ -381,7 +381,7 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    showStatus('Book added successfully!', 'success');
+                    showStatus(data.message || 'Book added! Site will update in ~30 seconds.', 'success');
                     bookForm.reset();
                 } else {
                     showStatus(data.error || 'Failed to add book', 'error');

@@ -41,21 +41,9 @@ async function init() {
 }
 
 async function loadBooks() {
-    // Try API first (for Vercel deployment), fall back to books.json (for local dev)
-    try {
-        const response = await fetch('/api/books');
-        if (response.ok) {
-            const data = await response.json();
-            return data.books || [];
-        }
-    } catch (e) {
-        // API not available, try static file
-    }
-
-    // Fallback to static books.json
     const response = await fetch('books.json');
     if (!response.ok) {
-        throw new Error('Failed to load books');
+        throw new Error('Failed to load books.json');
     }
     const data = await response.json();
     return data.books || [];

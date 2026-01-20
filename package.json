@@ -4,8 +4,5 @@
   "description": "Nate's Book Collection: Ranked",
   "scripts": {
     "dev": "vercel dev"
-  },
-  "dependencies": {
-    "@vercel/kv": "^2.0.0"
   }
 }
