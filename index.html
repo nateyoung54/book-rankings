@@ -15,6 +15,36 @@
         <button id="recommend-btn" class="recommend-btn">Submit a Recommendation</button>
     </header>
 
+    <!-- Admin Modal (triple-click title to open) -->
+    <div id="admin-modal" class="modal" hidden>
+        <div class="modal-content">
+            <button class="modal-close" id="admin-close">&times;</button>
+            <h2>Add a Book</h2>
+            <form id="admin-form">
+                <div class="form-group">
+                    <label for="admin-title">Title</label>
+                    <input type="text" id="admin-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-author">Author</label>
+                    <input type="text" id="admin-author" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-isbn">ISBN (optional)</label>
+                    <input type="text" id="admin-isbn" placeholder="For book cover">
+                </div>
+                <div class="form-group">
+                    <label for="admin-rank">Rank</label>
+                    <input type="number" id="admin-rank" min="1" required>
+                </div>
+                <button type="submit" class="submit-btn">Add & Download JSON</button>
+            </form>
+            <p id="admin-help" style="margin-top: 1rem; font-size: 0.85rem; color: #888; text-align: center;">
+                After downloading, upload books.json to your GitHub repo
+            </p>
+        </div>
+    </div>
+
     <!-- Recommendation Modal -->
     <div id="recommend-modal" class="modal" hidden>
         <div class="modal-content">

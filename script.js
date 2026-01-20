@@ -6,9 +6,13 @@
 const OPEN_LIBRARY_COVER_URL = 'https://covers.openlibrary.org/b/isbn/';
 const OPEN_LIBRARY_SEARCH_URL = 'https://openlibrary.org/search.json';
 
+// Store books globally for admin functionality
+let currentBooks = [];
+
 document.addEventListener('DOMContentLoaded', () => {
     init();
     initModal();
+    initAdminModal();
 });
 
 async function init() {
@@ -17,19 +21,19 @@ async function init() {
     const emptyState = document.getElementById('empty-state');
 
     try {
-        const books = await loadBooks();
+        currentBooks = await loadBooks();
         loadingEl.hidden = true;
 
-        if (books.length === 0) {
+        if (currentBooks.length === 0) {
             emptyState.hidden = false;
             return;
         }
 
         // Sort books by rank
-        books.sort((a, b) => a.rank - b.rank);
+        currentBooks.sort((a, b) => a.rank - b.rank);
 
         // Render all book cards
-        books.forEach(book => {
+        currentBooks.forEach(book => {
             const card = createBookCard(book);
             booksGrid.appendChild(card);
         });
@@ -245,5 +249,95 @@ function initModal() {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
+    });
+}
+
+// Admin modal - triple-click title to open
+function initAdminModal() {
+    const header = document.querySelector('header h1');
+    const modal = document.getElementById('admin-modal');
+    const closeBtn = document.getElementById('admin-close');
+    const form = document.getElementById('admin-form');
+    const rankInput = document.getElementById('admin-rank');
+
+    let clickCount = 0;
+    let clickTimer = null;
+
+    // Triple-click to open admin
+    header.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount === 3) {
+            clickCount = 0;
+            clearTimeout(clickTimer);
+            rankInput.value = currentBooks.length + 1;
+            modal.hidden = false;
+        } else {
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => {
+                clickCount = 0;
+            }, 500);
+        }
+    });
+
+    // Close modal
+    closeBtn.addEventListener('click', () => {
+        modal.hidden = true;
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.hidden = true;
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) {
+            modal.hidden = true;
+        }
+    });
+
+    // Handle form - add book and download JSON
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('admin-title').value.trim();
+        const author = document.getElementById('admin-author').value.trim();
+        const isbn = document.getElementById('admin-isbn').value.trim();
+        const rank = parseInt(document.getElementById('admin-rank').value);
+
+        // Create new book
+        const newBook = { rank, title, author };
+        if (isbn) {
+            newBook.isbn = isbn;
+        }
+
+        // Shift existing books at or below this rank
+        const updatedBooks = currentBooks.map(book => {
+            if (book.rank >= rank) {
+                return { ...book, rank: book.rank + 1 };
+            }
+            return book;
+        });
+
+        // Add new book and sort
+        updatedBooks.push(newBook);
+        updatedBooks.sort((a, b) => a.rank - b.rank);
+
+        // Generate JSON and download
+        const json = JSON.stringify({ books: updatedBooks }, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'books.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        alert('books.json downloaded! Upload it to your GitHub repo to update your site.');
+        form.reset();
+        modal.hidden = true;
     });
 }

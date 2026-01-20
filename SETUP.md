@@ -1,70 +1,33 @@
-# Deploying to Vercel
+# Adding Books to Your Collection
 
-Follow these steps to deploy your Book Rankings site with the admin panel.
+## How to Add a New Book
 
-## Step 1: Create a GitHub Personal Access Token
+1. Go to your site
+2. **Triple-click** the title "Nate's Book Collection: Ranked"
+3. Fill in the book details:
+   - Title
+   - Author
+   - ISBN (optional - helps find book cover)
+   - Rank (where to insert it)
+4. Click **"Add & Download JSON"**
+5. A `books.json` file will download
 
-1. Go to [github.com/settings/tokens](https://github.com/settings/tokens?type=beta)
-2. Click **"Generate new token"** > **"Fine-grained token"**
-3. Give it a name like `book-rankings-admin`
-4. Set expiration (recommend: 1 year)
-5. Under **"Repository access"**, select **"Only select repositories"**
-6. Choose your **book-rankings** repository
-7. Under **"Permissions"** > **"Repository permissions"**:
-   - Set **"Contents"** to **"Read and write"**
-8. Click **"Generate token"**
-9. **Copy the token** (you won't see it again!)
+## Updating Your Site
 
-## Step 2: Add Environment Variables in Vercel
+After downloading the new `books.json`:
 
-1. Go to your Vercel project dashboard
-2. Click **"Settings"** > **"Environment Variables"**
-3. Add these two variables:
+### Option A: GitHub Website (easiest)
+1. Go to your repo: github.com/nateyoung54/book-rankings
+2. Click on `books.json`
+3. Click the pencil icon (Edit)
+4. Delete all content
+5. Paste the contents of your downloaded file
+6. Click "Commit changes"
+7. Your site updates automatically in ~30 seconds
 
-   | Name | Value |
-   |------|-------|
-   | `ADMIN_PASSWORD` | `7habitslover` |
-   | `GITHUB_TOKEN` | (paste your token from Step 1) |
+### Option B: Drag and Drop
+1. Go to your repo on GitHub
+2. Drag your downloaded `books.json` onto the file list
+3. Commit the change
 
-4. Click **"Save"**
-
-## Step 3: Redeploy
-
-1. Go to **"Deployments"** tab
-2. Click **"..."** on the latest deployment
-3. Click **"Redeploy"**
-
-## You're Done!
-
-- **Main site:** `https://book-rankings.vercel.app`
-- **Admin panel:** `https://book-rankings.vercel.app/admin`
-- **Password:** `7habitslover`
-
----
-
-## Adding Books
-
-1. Go to `book-rankings.vercel.app/admin` on your phone or computer
-2. Enter your password
-3. Fill in: Title, Author, ISBN (optional), Rank
-4. Click **"Add Book"**
-5. Wait ~30 seconds for your site to rebuild
-6. Your new book appears!
-
----
-
-## Changing Your Password
-
-1. Go to Vercel > Settings > Environment Variables
-2. Update `ADMIN_PASSWORD`
-3. Redeploy
-
-## Troubleshooting
-
-**"GitHub token not configured" error:**
-- Make sure `GITHUB_TOKEN` is set in Vercel environment variables
-- Redeploy after adding it
-
-**"Failed to update books.json" error:**
-- Your GitHub token may have expired
-- Create a new token and update it in Vercel
+That's it! Your new book will appear on your site.
