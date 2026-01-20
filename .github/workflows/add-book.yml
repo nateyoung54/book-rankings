@@ -27,15 +27,24 @@ jobs:
             const title = context.payload.issue.title || '';
 
             // Parse book details from issue body
+            // Handles both "Field: Value" and GitHub form "### Field\n\nValue" formats
             const getField = (field) => {
-              const regex = new RegExp(`${field}:\\s*(.+)`, 'i');
-              const match = body.match(regex);
-              return match ? match[1].trim() : null;
+              // Try "### Field\n\nValue" format (GitHub forms)
+              const formRegex = new RegExp(`###\\s*${field}[^#]*?\\n\\n([^\\n#]+)`, 'i');
+              const formMatch = body.match(formRegex);
+              if (formMatch) return formMatch[1].trim();
+
+              // Try "Field: Value" format
+              const colonRegex = new RegExp(`${field}:\\s*(.+)`, 'i');
+              const colonMatch = body.match(colonRegex);
+              if (colonMatch) return colonMatch[1].trim();
+
+              return null;
             };
 
             const bookTitle = getField('Title') || getField('Book') || title.replace(/^add:?\s*/i, '').trim();
             const author = getField('Author');
-            const isbn = getField('ISBN');
+            const isbn = getField('ISBN') || getField('ISBN \\(optional\\)');
             const rankStr = getField('Rank');
 
             // Validate required fields
