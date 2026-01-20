@@ -509,12 +509,46 @@
             }
         }
 
+        // Initialize books from setup endpoint
+        async function initializeBooks() {
+            const btn = document.getElementById('init-btn');
+            btn.disabled = true;
+            btn.textContent = 'Initializing...';
+
+            try {
+                const response = await fetch('/api/admin/setup', {
+                    method: 'POST',
+                    headers: { 'X-Admin-Password': adminPassword }
+                });
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showStatus(`Imported ${data.count} books successfully!`, 'success');
+                    await loadBooks();
+                } else {
+                    showStatus(data.error || data.message || 'Failed to initialize', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Load My Books';
+                }
+            } catch (error) {
+                showStatus('Error connecting to server', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Load My Books';
+            }
+        }
+
         // Render books list
         function renderBooks() {
             bookCount.textContent = books.length;
 
             if (books.length === 0) {
-                booksContainer.innerHTML = '<div class="empty-state">No books yet. Add your first book above!</div>';
+                booksContainer.innerHTML = `
+                    <div class="empty-state">
+                        <p>No books in database yet.</p>
+                        <p style="margin-top: 0.5rem; margin-bottom: 1rem; font-size: 0.9rem;">Click below to import your 36 books:</p>
+                        <button id="init-btn" class="btn btn-primary" onclick="initializeBooks()">Load My Books</button>
+                    </div>
+                `;
                 return;
             }
 
