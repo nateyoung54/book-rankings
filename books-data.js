@@ -1,4 +1,4 @@
-{
+window.BOOKS_DATA = {
   "books": [
     {
       "rank": 1,
@@ -323,3 +323,4 @@
     }
   ]
 }
+;

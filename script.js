@@ -45,12 +45,21 @@ async function init() {
 }
 
 async function loadBooks() {
-    const response = await fetch('books.json');
-    if (!response.ok) {
-        throw new Error('Failed to load books.json');
+    try {
+        const response = await fetch('books.json');
+        if (!response.ok) {
+            throw new Error('Failed to load books.json');
+        }
+        const data = await response.json();
+        return data.books || [];
+    } catch (error) {
+        if (window.BOOKS_DATA && Array.isArray(window.BOOKS_DATA.books)) {
+            console.warn('Falling back to local BOOKS_DATA because books.json could not be fetched.', error);
+            return window.BOOKS_DATA.books;
+        }
+
+        throw error;
     }
-    const data = await response.json();
-    return data.books || [];
 }
 
 function createBookCard(book) {
@@ -70,8 +79,10 @@ function createBookCard(book) {
     const placeholder = createPlaceholder(book);
     coverContainer.appendChild(placeholder);
 
-    // Try to load cover image
-    if (book.isbn) {
+    // Prefer an explicit cover image when one is provided.
+    if (book.coverImage) {
+        loadCoverFromUrl(book.coverImage, coverContainer, placeholder);
+    } else if (book.isbn) {
         loadCoverByISBN(book.isbn, coverContainer, placeholder);
     } else {
         loadCoverBySearch(book.title, book.author, coverContainer, placeholder);
@@ -104,6 +115,23 @@ function createBookCard(book) {
     card.appendChild(info);
 
     return card;
+}
+
+function loadCoverFromUrl(url, container, placeholder) {
+    const img = document.createElement('img');
+    img.className = 'book-cover loading';
+    img.alt = 'Book cover';
+    img.src = url;
+
+    img.onload = function() {
+        img.classList.remove('loading');
+        placeholder.remove();
+        container.appendChild(img);
+    };
+
+    img.onerror = function() {
+        console.log(`Cover not found for URL: ${url}`);
+    };
 }
 
 function createPlaceholder(book) {
