@@ -291,43 +291,49 @@
     },
     {
       "rank": 48,
+      "title": "Leaders Made Here",
+      "author": "Mark Miller",
+      "isbn": "9781626569812"
+    },
+    {
+      "rank": 49,
       "title": "The Charisma Myth",
       "author": "Olivia Cabane",
       "isbn": "9781591845942"
     },
     {
-      "rank": 49,
+      "rank": 50,
       "title": "To Sell is Human",
       "author": "Daniel H. Pink",
       "isbn": "9781594631900"
     },
     {
-      "rank": 50,
+      "rank": 51,
       "title": "The Bezos Letters",
       "author": "Steve Anderson",
       "isbn": "1642793329"
     },
     {
-      "rank": 51,
+      "rank": 52,
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
       "isbn": "9781585424337"
     },
     {
-      "rank": 52,
+      "rank": 53,
       "title": "Sell or Be Sold",
       "author": "Grant Cardone",
       "isbn": "9781608322565",
       "coverImage": "covers/sell-or-be-sold.jpg"
     },
     {
-      "rank": 53,
+      "rank": 54,
       "title": "The Old Man and the Sea",
       "author": "Ernest Hemingway",
       "isbn": "9780684801223"
     },
     {
-      "rank": 54,
+      "rank": 55,
       "title": "The Power of Self-Discipline",
       "author": "Peter Hollins",
       "isbn": "9798580827568",
