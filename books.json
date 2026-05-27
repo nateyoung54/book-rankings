@@ -253,93 +253,99 @@
     },
     {
       "rank": 42,
+      "title": "Give and Take",
+      "author": "Adam Grant",
+      "isbn": "9780670026555"
+    },
+    {
+      "rank": 43,
       "title": "The Way of Excellence",
       "author": "Brad Stulberg",
       "isbn": "9780063385948",
       "coverImage": "covers/the-way-of-excellence.jpg"
     },
     {
-      "rank": 43,
+      "rank": 44,
       "title": "Thinking, Fast and Slow",
       "author": "Daniel Kahneman",
       "isbn": "9780374275631"
     },
     {
-      "rank": 44,
+      "rank": 45,
       "title": "So Good They Can't Ignore You",
       "author": "Cal Newport",
       "isbn": "9781455509126"
     },
     {
-      "rank": 45,
+      "rank": 46,
       "title": "The 5am Club",
       "author": "Robin Sharma",
       "isbn": "9781443456623"
     },
     {
-      "rank": 46,
+      "rank": 47,
       "title": "How the Mighty Fall",
       "author": "Jim Collins",
       "isbn": "9780977326419"
     },
     {
-      "rank": 47,
+      "rank": 48,
       "title": "Co-Intelligence",
       "author": "Ethan Mollick",
       "isbn": "9780593716717",
       "coverImage": "covers/co-intelligence.jpg"
     },
     {
-      "rank": 48,
+      "rank": 49,
       "title": "Win the Day",
       "author": "Mark Batterson",
       "isbn": "9780593192764"
     },
     {
-      "rank": 49,
+      "rank": 50,
       "title": "Leaders Made Here",
       "author": "Mark Miller",
       "isbn": "9781626569812"
     },
     {
-      "rank": 50,
+      "rank": 51,
       "title": "The Charisma Myth",
       "author": "Olivia Cabane",
       "isbn": "9781591845942"
     },
     {
-      "rank": 51,
+      "rank": 52,
       "title": "To Sell is Human",
       "author": "Daniel H. Pink",
       "isbn": "9781594631900"
     },
     {
-      "rank": 52,
+      "rank": 53,
       "title": "The Bezos Letters",
       "author": "Steve Anderson",
       "isbn": "1642793329"
     },
     {
-      "rank": 53,
+      "rank": 54,
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
       "isbn": "9781585424337"
     },
     {
-      "rank": 54,
+      "rank": 55,
       "title": "Sell or Be Sold",
       "author": "Grant Cardone",
       "isbn": "9781608322565",
       "coverImage": "covers/sell-or-be-sold.jpg"
     },
     {
-      "rank": 55,
+      "rank": 56,
       "title": "The Old Man and the Sea",
       "author": "Ernest Hemingway",
       "isbn": "9780684801223"
     },
     {
-      "rank": 56,
+      "rank": 57,
       "title": "The Power of Self-Discipline",
       "author": "Peter Hollins",
       "isbn": "9798580827568",
