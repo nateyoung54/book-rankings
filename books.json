@@ -215,143 +215,149 @@
     },
     {
       "rank": 36,
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "isbn": "9780812968255"
+    },
+    {
+      "rank": 37,
       "title": "Never Split The Difference",
       "author": "Chris Voss",
       "isbn": "9780062407801"
     },
     {
-      "rank": 37,
+      "rank": 38,
       "title": "Mindset",
       "author": "Carol Dweck",
       "isbn": "9780345472328"
     },
     {
-      "rank": 38,
+      "rank": 39,
       "title": "AI First: The Playbook for a Future-Proof Business and Brand",
       "author": "Adam Brotman",
       "coverImage": "covers/ai-first.jpg"
     },
     {
-      "rank": 39,
+      "rank": 40,
       "title": "The Coming Wave",
       "author": "Mustafa Suleyman",
       "isbn": "9780593593950",
       "coverImage": "covers/the-coming-wave.jpg"
     },
     {
-      "rank": 40,
+      "rank": 41,
       "title": "Who Not How",
       "author": "Dan Sullivan",
       "isbn": "9781401960582"
     },
     {
-      "rank": 41,
+      "rank": 42,
       "title": "2 Second Lean",
       "author": "Paul Akers",
       "isbn": "9780989863100",
       "coverImage": "covers/2-second-lean.jpg"
     },
     {
-      "rank": 42,
+      "rank": 43,
       "title": "The Millionaire Next Door",
       "author": "Thomas Stanley",
       "isbn": "9781589795471"
     },
     {
-      "rank": 43,
+      "rank": 44,
       "title": "Give and Take",
       "author": "Adam Grant",
       "isbn": "9780670026555"
     },
     {
-      "rank": 44,
+      "rank": 45,
       "title": "The Way of Excellence",
       "author": "Brad Stulberg",
       "isbn": "9780063385948",
       "coverImage": "covers/the-way-of-excellence.jpg"
     },
     {
-      "rank": 45,
+      "rank": 46,
       "title": "Thinking, Fast and Slow",
       "author": "Daniel Kahneman",
       "isbn": "9780374275631"
     },
     {
-      "rank": 46,
+      "rank": 47,
       "title": "So Good They Can't Ignore You",
       "author": "Cal Newport",
       "isbn": "9781455509126"
     },
     {
-      "rank": 47,
+      "rank": 48,
       "title": "The 5am Club",
       "author": "Robin Sharma",
       "isbn": "9781443456623"
     },
     {
-      "rank": 48,
+      "rank": 49,
       "title": "How the Mighty Fall",
       "author": "Jim Collins",
       "isbn": "9780977326419"
     },
     {
-      "rank": 49,
+      "rank": 50,
       "title": "Co-Intelligence",
       "author": "Ethan Mollick",
       "isbn": "9780593716717",
       "coverImage": "covers/co-intelligence.jpg"
     },
     {
-      "rank": 50,
+      "rank": 51,
       "title": "Win the Day",
       "author": "Mark Batterson",
       "isbn": "9780593192764"
     },
     {
-      "rank": 51,
+      "rank": 52,
       "title": "Leaders Made Here",
       "author": "Mark Miller",
       "isbn": "9781626569812"
     },
     {
-      "rank": 52,
+      "rank": 53,
       "title": "The Charisma Myth",
       "author": "Olivia Cabane",
       "isbn": "9781591845942"
     },
     {
-      "rank": 53,
+      "rank": 54,
       "title": "To Sell is Human",
       "author": "Daniel H. Pink",
       "isbn": "9781594631900"
     },
     {
-      "rank": 54,
+      "rank": 55,
       "title": "The Bezos Letters",
       "author": "Steve Anderson",
       "isbn": "1642793329"
     },
     {
-      "rank": 55,
+      "rank": 56,
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
       "isbn": "9781585424337"
     },
     {
-      "rank": 56,
+      "rank": 57,
       "title": "Sell or Be Sold",
       "author": "Grant Cardone",
       "isbn": "9781608322565",
       "coverImage": "covers/sell-or-be-sold.jpg"
     },
     {
-      "rank": 57,
+      "rank": 58,
       "title": "The Old Man and the Sea",
       "author": "Ernest Hemingway",
       "isbn": "9780684801223"
     },
     {
-      "rank": 58,
+      "rank": 59,
       "title": "The Power of Self-Discipline",
       "author": "Peter Hollins",
       "isbn": "9798580827568",
