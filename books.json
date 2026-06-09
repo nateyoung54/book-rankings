@@ -58,312 +58,318 @@
     },
     {
       "rank": 10,
+      "title": "High Output Management",
+      "author": "Andrew Grove",
+      "isbn": "9780679762881"
+    },
+    {
+      "rank": 11,
       "title": "Ego is the Enemy",
       "author": "Ryan Holiday",
       "isbn": "9781591847816"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "title": "The Subtle Art of Not Giving a F*ck",
       "author": "Mark Manson",
       "isbn": "9780062457714"
     },
     {
-      "rank": 12,
+      "rank": 13,
       "title": "Outliers: The Story of Success",
       "author": "Malcolm Gladwell",
       "isbn": "9780316017930"
     },
     {
-      "rank": 13,
+      "rank": 14,
       "title": "Atomic Habits",
       "author": "James Clear",
       "isbn": "9780735211292"
     },
     {
-      "rank": 14,
+      "rank": 15,
       "title": "Make Your Bed",
       "author": "William McRaven",
       "isbn": "9781455570249"
     },
     {
-      "rank": 15,
+      "rank": 16,
       "title": "The Toyota Way",
       "author": "Jefrery Liker",
       "isbn": "9781260468519"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "title": "The Tipping Point",
       "author": "Malcolm Gladwell",
       "isbn": "9780316346627"
     },
     {
-      "rank": 17,
+      "rank": 18,
       "title": "The Ultimate Sales Machine",
       "author": "Chet Holmes",
       "isbn": "9781591842156"
     },
     {
-      "rank": 18,
+      "rank": 19,
       "title": "Drive: The Surprising Truth About What Motivates Us",
       "author": "Daniel H. Pink",
       "isbn": "9781594484803"
     },
     {
-      "rank": 19,
+      "rank": 20,
       "title": "Zero to One",
       "author": "Peter Thiel",
       "isbn": "9780804139298"
     },
     {
-      "rank": 20,
+      "rank": 21,
       "title": "The Nvidia Way",
       "author": "Tae Kim",
       "isbn": "9781324086710",
       "coverImage": "covers/the-nvidia-way.jpg"
     },
     {
-      "rank": 21,
+      "rank": 22,
       "title": "The Hard Things About Hard Things",
       "author": "Ben Horowitz",
       "isbn": "9780062273208"
     },
     {
-      "rank": 22,
+      "rank": 23,
       "title": "Deep Work",
       "author": "Cal Newport",
       "isbn": "9781455586691"
     },
     {
-      "rank": 23,
+      "rank": 24,
       "title": "The Great Game of Business",
       "author": "Jack Stack",
       "isbn": "9780385348331"
     },
     {
-      "rank": 24,
+      "rank": 25,
       "title": "Chess Not Checkers",
       "author": "Mark Miller",
       "isbn": "9781626563940"
     },
     {
-      "rank": 25,
+      "rank": 26,
       "title": "Thinking in Bets",
       "author": "Annie Duke",
       "coverImage": "covers/thinking-in-bets.jpg"
     },
     {
-      "rank": 26,
+      "rank": 27,
       "title": "The Gap and The Gain",
       "author": "Dan Sullivan",
       "isbn": "9781401964368"
     },
     {
-      "rank": 27,
+      "rank": 28,
       "title": "Blink",
       "author": "Malcolm Gladwell",
       "isbn": "9780316010665"
     },
     {
-      "rank": 28,
+      "rank": 29,
       "title": "$100M Dollar Offers",
       "author": "Alex Hormozi",
       "isbn": "9781737475750"
     },
     {
-      "rank": 29,
+      "rank": 30,
       "title": "The Score Takes Care of Itself",
       "author": "Bill Walsh",
       "isbn": "9781591843474"
     },
     {
-      "rank": 30,
+      "rank": 31,
       "title": "The Psychology of Money",
       "author": "Morgan Housel",
       "isbn": "9780857197689"
     },
     {
-      "rank": 31,
+      "rank": 32,
       "title": "Goal Setting Boot Camp",
       "author": "Kevin Shulman",
       "coverImage": "covers/goal-setting-boot-camp.png"
     },
     {
-      "rank": 32,
+      "rank": 33,
       "title": "Start With Why",
       "author": "Simon Sinek",
       "isbn": "9781591846444"
     },
     {
-      "rank": 33,
+      "rank": 34,
       "title": "The Lean Startup",
       "author": "Eric Ries",
       "isbn": "9780307887894"
     },
     {
-      "rank": 34,
+      "rank": 35,
       "title": "Rocket Fuel",
       "author": "Gino Wickman",
       "isbn": "9781941631157"
     },
     {
-      "rank": 35,
+      "rank": 36,
       "title": "Be Useful: Seven Tools for Life",
       "author": "Arnold Schwarzenegger",
       "isbn": "9780593655955"
     },
     {
-      "rank": 36,
+      "rank": 37,
       "title": "Meditations",
       "author": "Marcus Aurelius",
       "isbn": "9780812968255"
     },
     {
-      "rank": 37,
+      "rank": 38,
       "title": "Never Split The Difference",
       "author": "Chris Voss",
       "isbn": "9780062407801"
     },
     {
-      "rank": 38,
+      "rank": 39,
       "title": "Mindset",
       "author": "Carol Dweck",
       "isbn": "9780345472328"
     },
     {
-      "rank": 39,
+      "rank": 40,
       "title": "AI First: The Playbook for a Future-Proof Business and Brand",
       "author": "Adam Brotman",
       "coverImage": "covers/ai-first.jpg"
     },
     {
-      "rank": 40,
+      "rank": 41,
       "title": "The Coming Wave",
       "author": "Mustafa Suleyman",
       "isbn": "9780593593950",
       "coverImage": "covers/the-coming-wave.jpg"
     },
     {
-      "rank": 41,
+      "rank": 42,
       "title": "Who Not How",
       "author": "Dan Sullivan",
       "isbn": "9781401960582"
     },
     {
-      "rank": 42,
+      "rank": 43,
       "title": "2 Second Lean",
       "author": "Paul Akers",
       "isbn": "9780989863100",
       "coverImage": "covers/2-second-lean.jpg"
     },
     {
-      "rank": 43,
+      "rank": 44,
       "title": "The Millionaire Next Door",
       "author": "Thomas Stanley",
       "isbn": "9781589795471"
     },
     {
-      "rank": 44,
+      "rank": 45,
       "title": "Suicidal Empathy",
       "author": "Gad Saad",
       "isbn": "9780063446533"
     },
     {
-      "rank": 45,
+      "rank": 46,
       "title": "Give and Take",
       "author": "Adam Grant",
       "isbn": "9780670026555"
     },
     {
-      "rank": 46,
+      "rank": 47,
       "title": "The Way of Excellence",
       "author": "Brad Stulberg",
       "isbn": "9780063385948",
       "coverImage": "covers/the-way-of-excellence.jpg"
     },
     {
-      "rank": 47,
+      "rank": 48,
       "title": "Thinking, Fast and Slow",
       "author": "Daniel Kahneman",
       "isbn": "9780374275631"
     },
     {
-      "rank": 48,
+      "rank": 49,
       "title": "So Good They Can't Ignore You",
       "author": "Cal Newport",
       "isbn": "9781455509126"
     },
     {
-      "rank": 49,
+      "rank": 50,
       "title": "The 5am Club",
       "author": "Robin Sharma",
       "isbn": "9781443456623"
     },
     {
-      "rank": 50,
+      "rank": 51,
       "title": "How the Mighty Fall",
       "author": "Jim Collins",
       "isbn": "9780977326419"
     },
     {
-      "rank": 51,
+      "rank": 52,
       "title": "Co-Intelligence",
       "author": "Ethan Mollick",
       "isbn": "9780593716717",
       "coverImage": "covers/co-intelligence.jpg"
     },
     {
-      "rank": 52,
+      "rank": 53,
       "title": "Win the Day",
       "author": "Mark Batterson",
       "isbn": "9780593192764"
     },
     {
-      "rank": 53,
+      "rank": 54,
       "title": "Leaders Made Here",
       "author": "Mark Miller",
       "isbn": "9781626569812"
     },
     {
-      "rank": 54,
+      "rank": 55,
       "title": "The Charisma Myth",
       "author": "Olivia Cabane",
       "isbn": "9781591845942"
     },
     {
-      "rank": 55,
+      "rank": 56,
       "title": "To Sell is Human",
       "author": "Daniel H. Pink",
       "isbn": "9781594631900"
     },
     {
-      "rank": 56,
+      "rank": 57,
       "title": "The Bezos Letters",
       "author": "Steve Anderson",
       "isbn": "1642793329"
     },
     {
-      "rank": 57,
+      "rank": 58,
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
       "isbn": "9781585424337"
     },
     {
-      "rank": 58,
+      "rank": 59,
       "title": "Sell or Be Sold",
       "author": "Grant Cardone",
       "isbn": "9781608322565",
       "coverImage": "covers/sell-or-be-sold.jpg"
     },
     {
-      "rank": 59,
+      "rank": 60,
       "title": "The Old Man and the Sea",
       "author": "Ernest Hemingway",
       "isbn": "9780684801223"
     },
     {
-      "rank": 60,
+      "rank": 61,
       "title": "The Power of Self-Discipline",
       "author": "Peter Hollins",
       "isbn": "9798580827568",
